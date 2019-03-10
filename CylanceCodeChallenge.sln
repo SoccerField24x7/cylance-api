@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cylance-api", "cylance-api.csproj", "{98A7F925-1E25-421E-B44D-1C0034CDF2F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cylance-api.Tests", "cylance-api.Tests\cylance-api.Tests.csproj", "{01AAC67C-1E09-45E0-AE18-0C6F08BC092D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98A7F925-1E25-421E-B44D-1C0034CDF2F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A7F925-1E25-421E-B44D-1C0034CDF2F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A7F925-1E25-421E-B44D-1C0034CDF2F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A7F925-1E25-421E-B44D-1C0034CDF2F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01AAC67C-1E09-45E0-AE18-0C6F08BC092D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01AAC67C-1E09-45E0-AE18-0C6F08BC092D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01AAC67C-1E09-45E0-AE18-0C6F08BC092D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01AAC67C-1E09-45E0-AE18-0C6F08BC092D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
