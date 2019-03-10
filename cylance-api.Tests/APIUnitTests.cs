@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace cylance_api.Tests
+namespace Cylance.Api.Tests
 {
     public class WebAPIUnitTests
     {
