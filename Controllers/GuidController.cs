@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Configuration;
+using PGContext.Entities;
 
 namespace Cylance.Api.Controllers
 {
@@ -14,6 +16,11 @@ namespace Cylance.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            using (var context = new CylanceContext())
+            {
+                var result = context.Guids.First();
+            }
+
             return new string[] { "value1", "value2" };
         }
 

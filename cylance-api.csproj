@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
-    <Folder Include="entities\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,6 +15,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.console" Version="2.4.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.8" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
 
 </Project>
