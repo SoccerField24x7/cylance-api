@@ -6,9 +6,9 @@ using GUID = CylanceContext.Entities.Guid;
 using ServiceStack.Redis;
 using CylanceApi.BusinessLogic;
 
-namespace Cylance.Api.Tests
+namespace Cylance.BusinessLogic.Tests
 {
-    public class WebAPIUnitTests
+    public class BusinessLogicUnitTests
     {
         [Fact]
         public void SQLDatabaseIsAvailable()
@@ -55,11 +55,6 @@ namespace Cylance.Api.Tests
                 {
                     valid = false;
                 }
-
-                //var gg = redisGuids.GetById(testGuid.Id);
-
-                //string blah = "HI";
-                
             }
 
             Assert.True(valid);
