@@ -1,23 +1,17 @@
 using System;
 using System.Linq;
 using Xunit;
-using Microsoft.Extensions.Caching.Distributed;
 using CylanceContext.Entities;
-//using StackExchange.Redis;
+using GUID = CylanceContext.Entities.Guid;
+using ServiceStack.Redis;
+using CylanceApi.BusinessLogic;
 
 namespace Cylance.Api.Tests
 {
     public class WebAPIUnitTests
     {
-        private readonly IDistributedCache _cache;
-
-        public WebAPIUnitTests(IDistributedCache distributedCache)
-        {
-            _cache = distributedCache;
-        }
-
         [Fact]
-        public void DatabaseIsAvailable()
+        public void SQLDatabaseIsAvailable()
         {
             bool valid;
             try
@@ -36,23 +30,39 @@ namespace Cylance.Api.Tests
             Assert.True(valid);
         }
 
-        [Fact(Skip = "TDD: Not yet available")]
-        public void EndpointsAreAvailable()
+        [Fact]
+        public void NoSQLDatabaseIsAvailable()
         {
+            bool valid;
+            using (var redis = new RedisClient())
+            {
+                var redisGuids = redis.As<GUID>();
 
-        }
+                var testGuid = new GUID
+                {
+                    Id = System.Guid.NewGuid(),
+                    //GUID = System.Guid.NewGuid(),
+                    Author = "Random",
+                    Title = "dunno"
+                };
 
-        [Fact(Skip = "TDD: Not yet available")]
-        public void ContactAPIEndpointGenerates401()
-        {
+                try
+                {
+                    redisGuids.Store(testGuid);
+                    valid = true;
+                }
+                catch(Exception)
+                {
+                    valid = false;
+                }
 
+                //var gg = redisGuids.GetById(testGuid.Id);
 
-        }
+                //string blah = "HI";
+                
+            }
 
-        [Fact(Skip = "TDD: Not yet available")]
-        public void ContactAPIEndpointSuccess()
-        {
-
+            Assert.True(valid);
         }
 
         [Fact(Skip = "TDD: Not yet available")]
