@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ServiceStack.Configuration;
+using ServiceStack.Redis;
+using ServiceStack.Text;
 
 namespace Cylance.Api
 {
@@ -26,6 +29,21 @@ namespace Cylance.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+            // REMOVE, NOT NEEDED
+            //services.AddDistributedRedisCache(options =>
+            //{
+            //    options.Configuration = "localhost:6379";
+            //});
+
+            //services.Register(c => new PooledRedisClientManager("password@host:6379"));
+            //string connString = "{blah:blah}";
+            //connString.ToRedisEndpoint();
+
+            // TODO: get connection info from App.Config and add
+            //services.AddSingleton(new RedisClient());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
