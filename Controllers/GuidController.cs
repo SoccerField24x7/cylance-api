@@ -4,7 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Configuration;
-using PGContext.Entities;
+using CylanceContext.Entities;
+using GUID = CylanceContext.Entities.Guid;
+using Microsoft.Extensions.Caching.Distributed;
+using ServiceStack.Redis;
+using Newtonsoft.Json;
 
 namespace Cylance.Api.Controllers
 {
@@ -16,12 +20,30 @@ namespace Cylance.Api.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            using (var context = new CylanceContext())
+            // get the Guid here
+            System.Guid newObj = new System.Guid("8214d430-301e-446f-88b7-e218677ae2bf");
+            GUID thisGuid;
+
+            using (var redis = new RedisClient())
             {
-                var result = context.Guids.First();
+                thisGuid = redis.GetById<GUID>(newObj);
+
+                if (thisGuid == null)
+                {
+                    using (var context = new CylanceDBContext())
+                    {
+                        var result = context.Guids.Where(x => x.Id == newObj).FirstOrDefault();
+
+                        if (result != null)
+                        {
+                            var redisGuids = redis.As<GUID>();
+                            redisGuids.Store(result);
+                        }
+                    }
+                }
             }
 
-            return new string[] { "value1", "value2" };
+            return Content(JsonConvert.SerializeObject(thisGuid));
         }
 
         // GET api/guid/5
