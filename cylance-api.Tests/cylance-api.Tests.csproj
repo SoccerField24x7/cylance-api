@@ -10,9 +10,13 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="ServiceStack.Redis" Version="5.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\cylance-api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="App.config" />
   </ItemGroup>
 </Project>
