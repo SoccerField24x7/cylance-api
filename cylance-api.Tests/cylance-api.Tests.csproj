@@ -12,11 +12,10 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <PackageReference Include="ServiceStack.Redis" Version="5.4.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\cylance-api.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <None Remove="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cylance-api\cylance-api.csproj" />
   </ItemGroup>
 </Project>

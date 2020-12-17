@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cylance-api", "cylance-api.csproj", "{98A7F925-1E25-421E-B44D-1C0034CDF2F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cylance-api", "cylance-api\cylance-api.csproj", "{98A7F925-1E25-421E-B44D-1C0034CDF2F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cylance-api.Tests", "cylance-api.Tests\cylance-api.Tests.csproj", "{01AAC67C-1E09-45E0-AE18-0C6F08BC092D}"
 EndProject
